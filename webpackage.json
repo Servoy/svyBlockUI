@@ -1,0 +1,12 @@
+{
+    "name":"svyblockui",
+    "displayName":"Block UI",
+    "packageType": "Web-Service",
+    "icon": "https://raw.githubusercontent.com/Servoy/svyBlockUI/master/svyblockui/servoy.png",
+    "description": "A service to block the UI with a message and/or a spinner",
+    "wikiUrl": "https://github.com/Servoy/svyBlockUI/wiki",
+    "sourceUrl" : "https://github.com/Servoy/svyBlockUI",
+    "releases" : [
+    	{"version":"1.0.0","url":"https://github.com/Servoy/svyBlockUI/releases/download/v1.0.0/svyblockui.zip", "servoy-version":"8.1"}
+    ]
+}

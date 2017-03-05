@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: svyblockui
+Bundle-Name: Block UI
+Bundle-Version: 1.0.0
+Package-Type: Web-Service
+
+Name: blockui/blockui.spec
+Web-Service: True
+
