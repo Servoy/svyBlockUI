@@ -10,11 +10,11 @@ To use the latest source code clone the git repository and checkout the master b
 
 # Documentation
 
-See the Wiki for the available documentation
+See the [Wiki](https://github.com/Servoy/svyBlockUI/wiki) for the available documentation
 
 # Feature Requests & Bugs
 
-Found a bug or would like to see a new feature implemented? Raise an issue in the Issue Tracker
+Found a bug or would like to see a new feature implemented? Raise an issue in the [Issue Tracker](https://github.com/Servoy/svyBlockUI/issues)
 
 # Contributing
 
