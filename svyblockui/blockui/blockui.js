@@ -10,12 +10,25 @@ angular
 		var scope = $services.getServiceScope('svyBlockUI');
 		
 		return {
+			/**
+			 * Shows the UI Blocker
+			 * 
+			 * @param {String} [message]
+			 */
 			show: function(message) {
 				blockUI.start(message);
 			},
+			/**
+			 * Updates the message of the UI Blocker
+			 * 
+			 * @param {String} message
+			 */
 			setMessage: function(message) {
 				blockUI.message(message);	
 			},
+			/**
+			 * Stops all UI Blockers
+			 */
 			stop: function() {
 				blockUI.stop();
 				blockUI.reset();
@@ -35,7 +48,7 @@ angular
 		$templateCache.put('angular-block-ui/angular-block-ui.ng.html', html);
 		
 		function setSpinnerHtml() {
-			var spinnerHtml;
+			var spinnerHtml = '';
 			
 			if (scope.model.messageStyleClass) {
 				$('.block-ui-message').addClass(scope.model.messageStyleClass);
@@ -53,7 +66,6 @@ angular
 			}
 			
 			var selector;
-			var isAttrSelector = false;
 			var spinner = scope.model.spinner ? scope.model.spinner.toLowerCase() : null;
 			
 			if (spinner === 'rotating plane') {
