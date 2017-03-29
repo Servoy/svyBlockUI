@@ -32,16 +32,20 @@
 	   	"show": 
 	   	{
 	    	"parameters": [
-		    	{ "name":"message", "type":"string" }
+		    	{ "name": "message", "type": "string" },
+		    	{ "name": "timeout", "type": "int", "optional": true }
 			]
 		},
 		"stop": 
 	   	{
+	   		"parameters": [
+		    	{ "name": "timeout", "type": "int", "optional": true }
+			]
 		},
 		"setMessage": 
 	   	{
 	    	"parameters": [
-		    	{ "name":"message", "type":"string" }
+		    	{ "name": "message", "type": "string" }
 			]
 		}
  	}

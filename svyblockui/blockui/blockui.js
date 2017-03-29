@@ -5,18 +5,31 @@ angular
 		blockUIConfig.resetOnException = true;
 		blockUIConfig.message = null;
 	})
-	.factory("svyBlockUI", function($services, blockUI) 
+	.factory("svyBlockUI", function($services, $timeout, blockUI) 
 	{
 		var scope = $services.getServiceScope('svyBlockUI');
+		
+		function stopBlocker() {
+			blockUI.stop();
+			blockUI.reset();
+		}
 		
 		return {
 			/**
 			 * Shows the UI Blocker
 			 * 
 			 * @param {String} [message]
+			 * @param {Number} [timeout] optional number of milliseconds until the blocker is hidden
+			 * 
 			 */
-			show: function(message) {
-				blockUI.start(message);
+			show: function(message, timeout) {
+				if (timeout > 0) {
+					 $timeout(function() {
+						 blockUI.start(message); 
+						}, timeout); 
+				} else {
+					blockUI.start(message);
+				}
 			},
 			/**
 			 * Updates the message of the UI Blocker
@@ -24,14 +37,19 @@ angular
 			 * @param {String} message
 			 */
 			setMessage: function(message) {
-				blockUI.message(message);	
+				blockUI.message(message);
 			},
 			/**
 			 * Stops all UI Blockers
+			 * 
+			 * @param {Number} [timeout] optional number of milliseconds until the blocker is hidden
 			 */
-			stop: function() {
-				blockUI.stop();
-				blockUI.reset();
+			stop: function(timeout) {
+				if (timeout > 0) {
+					$timeout(stopBlocker, timeout);
+				} else {
+					stopBlocker();
+				}
 			}
 		}
 	})
@@ -172,7 +190,7 @@ angular
 			
 			$document.find('div.block-ui-spinner').html(spinnerHtml);
 			
-			if (scope.model.spinnerBgColor) {
+			if (selector && scope.model.spinnerBgColor) {
 				$(selector).css('background-color', scope.model.spinnerBgColor);
 			}
 		}
