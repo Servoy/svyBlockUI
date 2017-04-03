@@ -56,7 +56,7 @@ function onAction(event) {
 	
 	plugins.svyBlockUI.show('Blocking ...');
 	
-	for (var i = 1; i <= 10; i++) {
+	for (var i = 1; i <= 3; i++) {
 		plugins.svyBlockUI.setMessage('Blocking ... ' + i);
 		application.sleep(1000);
 	}
