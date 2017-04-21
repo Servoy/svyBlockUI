@@ -53,7 +53,7 @@ typeid:16,
 uuid:"734BB719-E232-4352-955B-C142BD11416A"
 }
 ],
-name:"main",
+name:"svyBlockUIMain",
 navigatorID:"-1",
 onShowMethodID:"47A3340F-3CCA-4C68-87CF-D66774D6ECB8",
 showInMenu:true,

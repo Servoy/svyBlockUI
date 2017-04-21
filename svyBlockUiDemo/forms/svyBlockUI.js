@@ -3,7 +3,7 @@
  *
  * @properties={typeid:35,uuid:"3BDCB5C9-739E-4577-9642-95CA7BFC29F1"}
  */
-var spinnerColor = null;
+var spinnerColor = '#ff8040';
 
 /**
  * @type {Number}
@@ -34,27 +34,32 @@ var overlayColor = '#ffffff';
 var spinner = 'Three bounce';
 
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"8309261A-D524-443B-A754-075131E09E7D",variableType:4}
+ */
+var delay = 0;
+
+/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @private
- *
  * @properties={typeid:24,uuid:"74F49696-C17B-4D80-ADF7-77CD13BA24B8"}
  */
-function onAction(event) {
+function blockUI(event) {
 	plugins.svyBlockUI.overlayColor = overlayColor;
 	plugins.svyBlockUI.overlayOpacity = overlayOpacity;
 	plugins.svyBlockUI.spinner = spinner;
 	plugins.svyBlockUI.spinnerBgColor = spinnerColor;
-	
+
 	if (useCustomStyle) {
 		plugins.svyBlockUI.messageStyleClass = 'svy-block-ui-message';
 	} else {
 		plugins.svyBlockUI.messageStyleClass = null;
 	}
 	
-	plugins.svyBlockUI.show('Blocking ...');
+	plugins.svyBlockUI.show('Blocking ...',delay);
 	
 	for (var i = 1; i <= 3; i++) {
 		plugins.svyBlockUI.setMessage('Blocking ... ' + i);
