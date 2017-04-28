@@ -2,7 +2,7 @@
     "name":"svyblockui",
     "displayName":"Block UI",
     "packageType": "Web-Service",
-    "icon": "https://raw.githubusercontent.com/Servoy/svyBlockUI/master/svyblockui/servoy.png",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spinner_font_awesome.svg/512px-Spinner_font_awesome.svg.png",
     "description": "A service to block the UI with a message and/or a spinner",
     "wikiUrl": "https://github.com/Servoy/svyBlockUI/wiki",
     "sourceUrl" : "https://github.com/Servoy/svyBlockUI",
