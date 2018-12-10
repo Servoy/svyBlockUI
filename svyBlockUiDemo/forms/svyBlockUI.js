@@ -52,6 +52,9 @@ function blockUI(event) {
 	plugins.svyBlockUI.overlayOpacity = overlayOpacity;
 	plugins.svyBlockUI.spinner = spinner;
 	plugins.svyBlockUI.spinnerBgColor = spinnerColor;
+	
+	// set the block delay
+	plugins.svyBlockUI.delay = delay;
 
 	if (useCustomStyle) {
 		plugins.svyBlockUI.messageStyleClass = 'svy-block-ui-message';
@@ -59,7 +62,7 @@ function blockUI(event) {
 		plugins.svyBlockUI.messageStyleClass = null;
 	}
 	
-	plugins.svyBlockUI.show('Blocking ...',delay);
+	plugins.svyBlockUI.show('Blocking ...');
 	
 	for (var i = 1; i <= 3; i++) {
 		plugins.svyBlockUI.setMessage('Blocking ... ' + i);

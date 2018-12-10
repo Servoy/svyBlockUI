@@ -21,6 +21,7 @@
 	],
 	"model":
 	{
+		"delay"						: {"type": "int", "default" : 250},
 		"spinner"					: {"type": "string"},
 		"spinnerBgColor"			: {"type": "color"},
 		"messageStyleClass"			: {"type": "styleclass"},

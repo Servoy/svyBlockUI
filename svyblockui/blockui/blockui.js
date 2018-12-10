@@ -2,7 +2,8 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 	blockUIConfig.blockBrowserNavigation = true;
 	blockUIConfig.resetOnException = true;
 	blockUIConfig.message = null;
-}).factory("svyBlockUI", function($services, $timeout, blockUI) {
+}).factory("svyBlockUI", function($services, $timeout, blockUI, blockUIConfig) {
+		
 		var scope = $services.getServiceScope('svyBlockUI');
 
 		function stopBlocker() {
@@ -19,16 +20,19 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 			 *
 			 */
 			show: function(message, timeout) {
+				
 				if (timeout > 0) {
-					$timeout(function() {
-							blockUI.start(message);
-						}, timeout);
+					// change the block delay of angular-block-ui
+					blockUIConfig.delay = timeout
 				} else {
-					scope.$apply(function() {
-						// Apply when event called without the knowledge of angular
-						blockUI.start(message);
-					});
+					// change the block delay of angular-block-ui
+					blockUIConfig.delay = scope.model.delay ? scope.model.delay : 0;
 				}
+				
+				scope.$apply(function() {
+					// Apply when event called without the knowledge of angular
+					blockUI.start(message);
+				});
 			},
 			/**
 			 * Updates the message of the UI Blocker
@@ -54,7 +58,7 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 				}
 			}
 		}
-	}).run(function($rootScope, $services, $templateCache, $document) {
+	}).run(function($rootScope, $services, $templateCache, $document, blockUIConfig) {
 	var scope = $services.getServiceScope('svyBlockUI');
 
 	var html = '<div class=\"block-ui-overlay\"></div>\
@@ -198,6 +202,9 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 	scope.$watch('model', function(newValue, oldValue) {
 			if (newValue) {
 				setSpinnerHtml();
+				
+				// change the default block delay
+				blockUIConfig.delay = newValue.delay ? newValue.delay : 0;
 			}
 		}, true);
 })
