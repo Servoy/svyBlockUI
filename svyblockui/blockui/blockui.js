@@ -20,18 +20,22 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 			 *
 			 */
 			show: function(message, timeout) {
+				var defaultDelay = scope.model.delay ? scope.model.delay : 0;
 				
 				if (timeout > 0) {
 					// change the block delay of angular-block-ui
 					blockUIConfig.delay = timeout
 				} else {
 					// change the block delay of angular-block-ui
-					blockUIConfig.delay = scope.model.delay ? scope.model.delay : 0;
+					blockUIConfig.delay = defaultDelay;
 				}
 				
 				scope.$apply(function() {
 					// Apply when event called without the knowledge of angular
 					blockUI.start(message);
+					
+					// change back the delay to default
+					blockUIConfig.delay = defaultDelay;
 				});
 			},
 			/**
