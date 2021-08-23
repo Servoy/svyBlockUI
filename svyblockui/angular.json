@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c73821cc-c3cd-481c-a275-0657b4a6c943"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@servoy/svyblockui": {
+      "projectType": "library",
+      "root": "projects/svyblockui",
+      "sourceRoot": "projects/svyblockui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/svyblockui/tsconfig.lib.json",
+            "project": "projects/svyblockui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/svyblockui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "preserveSymlinks": true,
+            "main": "projects/svyblockui/src/test.ts",
+            "tsConfig": "projects/svyblockui/tsconfig.spec.json",
+            "karmaConfig": "projects/svyblockui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "preserveSymlinks": true,
+            "lintFilePatterns": [
+              "projects/svyblockui/src/**/*.ts",
+              "projects/svyblockui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@servoy/svyblockui"
+}

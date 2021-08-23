@@ -3,6 +3,12 @@
 	"displayName": "Block UI",
 	"version": 1,
  	"definition": "svyblockui/blockui/blockui.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyblockui",
+       "serviceName": "SvyBlockUIService",
+       "entryPoint": "dist/servoy/svyblockui",
+       "moduleName": "SvyBlockUIModule"
+    },
 	"libraries": [
 		{"name":"angular-block-ui.js", "version":"0.2.0", "url":"svyblockui/blockui/angular-block-ui/angular-block-ui.js", "mimetype":"text/javascript"}, 
 		{"name":"angular-block-ui.css", "version":"0.2.0", "url":"svyblockui/blockui/angular-block-ui/angular-block-ui.css", "mimetype":"text/css"},

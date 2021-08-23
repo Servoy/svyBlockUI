@@ -1,0 +1,16 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/servoy/svyblockui",
+     "assets": [
+    ],
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdId": "servoy.svyblockui",
+    "umdModuleIds": {
+      "@servoy/public": "servoy.public",
+      "@angular/core": "angular.core",
+      "ng-block-ui": "ng-block-ui"
+    }
+  },
+  "allowedNonPeerDependencies": ["ng-block-ui"]
+}
