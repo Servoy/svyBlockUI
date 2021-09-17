@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: svyblockui
 Bundle-Name: Block UI
-Bundle-Version: 1.0.4
+Bundle-Version: 1.1
 Package-Type: Web-Service
 
 Name: blockui/blockui.spec
