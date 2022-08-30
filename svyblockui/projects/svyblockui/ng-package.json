@@ -4,13 +4,7 @@
      "assets": [
     ],
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdId": "servoy.svyblockui",
-    "umdModuleIds": {
-      "@servoy/public": "servoy.public",
-      "@angular/core": "angular.core",
-      "ng-block-ui": "ng-block-ui"
-    }
+    "entryFile": "src/public-api.ts"
   },
   "allowedNonPeerDependencies": ["ng-block-ui"]
 }
