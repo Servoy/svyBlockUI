@@ -74,18 +74,21 @@ export class SvyBlockUIService {
             // change the block delay of angular-block-ui
             delayStart = timeout
         }
-
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(SvyBlockUI);
-        this.blockUIComponent = componentFactory.create(this._injector);
-        this.blockUIComponent.instance.delay = delayStart;
-        //TODO custom styling? should be done via css?
-        this.blockUIComponent.instance.messageStyleClass = this._messageStyleClass;
-        this.blockUIComponent.instance.overlayColor = this._overlayColor;
-        this.blockUIComponent.instance.overlayOpacity = this._overlayOpacity;
-        this.blockUIComponent.instance.spinner = this._spinner;
-        this.blockUIComponent.instance.spinnerBgColor = this._spinnerBgColor;
-        this._applicationRef.attachView(this.blockUIComponent.hostView);
-        this.doc.body.appendChild((this.blockUIComponent.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement);
+        
+        if (this.blockUIComponent  == null)
+        {
+            const componentFactory = this.componentFactoryResolver.resolveComponentFactory(SvyBlockUI);
+            this.blockUIComponent = componentFactory.create(this._injector);
+            this.blockUIComponent.instance.delay = delayStart;
+            //TODO custom styling? should be done via css?
+            this.blockUIComponent.instance.messageStyleClass = this._messageStyleClass;
+            this.blockUIComponent.instance.overlayColor = this._overlayColor;
+            this.blockUIComponent.instance.overlayOpacity = this._overlayOpacity;
+            this.blockUIComponent.instance.spinner = this._spinner;
+            this.blockUIComponent.instance.spinnerBgColor = this._spinnerBgColor;
+            this._applicationRef.attachView(this.blockUIComponent.hostView);
+            this.doc.body.appendChild((this.blockUIComponent.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement);
+        }
 
         this.blockUIComponent.instance.show(message);
     }
