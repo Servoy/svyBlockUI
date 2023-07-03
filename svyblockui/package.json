@@ -1,6 +1,6 @@
 {
   "name": "svyblockui",
-  "version": "2023.3.0",
+  "version": "2023.6.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
