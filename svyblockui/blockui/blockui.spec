@@ -3,6 +3,7 @@
 	"displayName": "Block UI",
 	"version": 1,
  	"definition": "svyblockui/blockui/blockui.js",
+ 	"doc": "svyblockui/blockui/blockui_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyblockui",
        "serviceName": "SvyBlockUIService",
