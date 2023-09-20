@@ -28,7 +28,7 @@
 	],
 	"model":
 	{
-		"delay"						: {"type": "int", "default" : 250},
+		"delay"						: {"type": "int", "default" : 250 , "tags": {"doc": "This is the delay in milliseconds how long it must take to start show the blocking ui"} },
 		"spinner"					: {"type": "string"},
 		"spinnerBgColor"			: {"type": "color"},
 		"messageStyleClass"			: {"type": "styleclass"},
