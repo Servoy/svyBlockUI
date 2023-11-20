@@ -42,13 +42,15 @@
 	    	"parameters": [
 		    	{ "name": "message", "type": "string" },
 		    	{ "name": "timeout", "type": "int", "optional": true }
-			]
+			],
+			"async-now": true
 		},
 		"stop": 
 	   	{
 	   		"parameters": [
 		    	{ "name": "timeout", "type": "int", "optional": true }
-			]
+			],
+			"async-now": true
 		},
 		"setMessage": 
 	   	{
