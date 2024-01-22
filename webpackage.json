@@ -4,7 +4,7 @@
     "packageType": "Web-Service",
     "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Spinner_font_awesome.svg/512px-Spinner_font_awesome.svg.png",
     "invertIcon": true,
-    "description": "A service to block the UI with a message and/or a spinner",
+    "description": "A service that can be used to temporarily block the client's UI with a message and/or one of a few available 'waiting' animations.",
     "wikiUrl": "https://github.com/Servoy/svyBlockUI/wiki",
     "sourceUrl" : "https://github.com/Servoy/svyBlockUI",
     "releases" : [
