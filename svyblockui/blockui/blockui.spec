@@ -29,11 +29,11 @@
 	"model":
 	{
 		"delay"						: {"type": "int", "default" : 250 , "tags": {"doc": "This is the delay in milliseconds how long it must take to start show the blocking ui"} },
-		"spinner"					: {"type": "string"},
-		"spinnerBgColor"			: {"type": "color"},
+		"spinner"					: {"type": "string", "deprecated" : "Use block-ui-spinner class to style the spinner"},
+		"spinnerBgColor"			: {"type": "color", "deprecated" : "Use block-ui-spinner class to style the spinner"},
 		"messageStyleClass"			: {"type": "styleclass"},
-		"overlayColor"				: {"type": "color", "default": "#ffffff"},
-		"overlayOpacity"			: {"type": "double", "default": 0.5}
+		"overlayColor"				: {"type": "color", "default": "#ffffff", "deprecated" : "Use block-ui-main class to style the spinner overlay"},
+		"overlayOpacity"			: {"type": "double", "default": 0.5, "deprecated" : "Use block-ui-main class to style the spinner overlay"}
  	},
  	"api":
  	{

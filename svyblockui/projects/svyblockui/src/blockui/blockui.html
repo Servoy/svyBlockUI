@@ -1,3 +1,11 @@
-<block-ui [delayStart]="delay" #element>
+<ng-template #blockTemplate>
+    <div class="block-ui-spinner">
+        <div class="loader"></div>
+        <div *ngIf="message" class="message {{messageStyleClass}}">
+            {{ message }}
+        </div>
+    </div>
+</ng-template>
+<block-ui [delayStart]="delay" [template]="blockTemplate" #element>
 
 </block-ui>

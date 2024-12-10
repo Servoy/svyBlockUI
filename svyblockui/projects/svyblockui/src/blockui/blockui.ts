@@ -7,24 +7,28 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 })
 export class SvyBlockUI {
 
-    @Input() delay: number;
-    @Input() spinner: string;
-    @Input() spinnerBgColor: string;
-    @Input() messageStyleClass: string;
-    @Input() overlayColor: string;
-    @Input() overlayOpacity: number;
+    delay: number;
+    spinner: string;
+    spinnerBgColor: string;
+    messageStyleClass: string;
+    overlayColor: string;
+    overlayOpacity: number;
 
     @BlockUI() blockUI: NgBlockUI;
+
+    public message = "";
 
     constructor() {
     }
 
     show(message: string) {
         this.blockUI.start(message);
+        this.message = message;
     }
 
     setMessage(message: string) {
         this.blockUI.update(message);
+        this.message = message;
     }
 
     stop() {
