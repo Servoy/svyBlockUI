@@ -3,8 +3,8 @@
 /**
  * Shows the UI Blocker
  *
- * @param {String} [message]
- * @param {Number} [timeout] optional number of milliseconds until the blocker is hidden
+ * @param {String} message The message to display while the UI is blocked.
+ * @param {Number} [timeout] Number of milliseconds until the blocker is hidden
  *
  */
 function show(message, timeout) {
@@ -12,7 +12,7 @@ function show(message, timeout) {
 /**
  * Updates the message of the UI Blocker
  *
- * @param {String} message
+ * @param {String} message The new message to display while the UI is blocked.
  */
 function setMessage(message) {
 }
