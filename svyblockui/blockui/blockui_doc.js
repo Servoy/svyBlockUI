@@ -1,13 +1,6 @@
 /* Block UI Service can show an overlay over the whole browser page while some (long) operations are being executed. It prevents any interaction with the UI. The overlay UI can be customized from CSS, using block-ui-main and block-ui-spinner classes. */
 
 /**
- * This is the delay in milliseconds how long it must take to start show the blocking ui
- */
-var delay;
-
-
-
-/**
  * Shows the UI Blocker
  *
  * @param {String} message The message to display while the UI is blocked.
