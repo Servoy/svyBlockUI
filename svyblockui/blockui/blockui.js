@@ -2,6 +2,7 @@ angular.module('svyBlockUI', ['servoy', 'blockUI']).config(function(blockUIConfi
 	blockUIConfig.blockBrowserNavigation = true;
 	blockUIConfig.resetOnException = true;
 	blockUIConfig.message = null;
+	blockUIConfig.autoBlock = false;
 }).factory("svyBlockUI", function($services, $timeout, blockUI, blockUIConfig) {
 		
 		var scope = $services.getServiceScope('svyBlockUI');
