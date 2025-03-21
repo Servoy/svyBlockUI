@@ -3,7 +3,8 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
     selector: 'svyblockui-blockui',
-    templateUrl: './blockui.html'
+    templateUrl: './blockui.html',
+    standalone: false
 })
 export class SvyBlockUI {
 
