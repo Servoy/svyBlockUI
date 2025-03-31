@@ -5,16 +5,30 @@
  */
 var delay;
 
+/**
+ * (Deprecated) The spinner configuration as a string. Use CSS classes (block-ui-spinner) to style the spinner.
+ */
 var spinner;
 
+/**
+ * (Deprecated) The background color for the spinner. Use CSS classes (block-ui-spinner) to style the spinner.
+ */
 var spinnerBgColor;
 
+/**
+ * CSS style class applied to the message area of the blocking UI.
+ */
 var messageStyleClass;
 
+/**
+ * (Deprecated) The overlay color for the blocking UI. Use CSS classes (block-ui-main) to style the overlay.
+ */
 var overlayColor;
 
+/**
+ * (Deprecated) The overlay opacity for the blocking UI. Use CSS classes (block-ui-main) to style the overlay.
+ */
 var overlayOpacity;
-
 
 
 /**
