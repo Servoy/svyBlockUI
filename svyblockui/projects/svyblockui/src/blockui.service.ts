@@ -96,6 +96,10 @@ export class SvyBlockUIService {
     setMessage(message: string) {
         if (this.blockUIComponent) this.blockUIComponent.instance.setMessage(message);
     }
+    
+    setShowAs(showAs: string) {
+        if (this.blockUIComponent) this.blockUIComponent.instance.setShowAs(showAs);
+    }
 
     stop(timeout?: number) {
         if (timeout > 0) {

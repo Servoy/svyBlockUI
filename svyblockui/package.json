@@ -22,7 +22,7 @@
     "@angular/core": "19.2.4",
     "@angular/forms": "19.2.4",
     "@angular/router": "^19.2.4",
-    "@servoy/public": "2025.3.0",
+    "@servoy/public": "2025.9.1",
     "ng-block-ui": "4.0.1",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",

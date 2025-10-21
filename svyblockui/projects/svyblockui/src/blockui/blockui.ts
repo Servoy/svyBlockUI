@@ -18,6 +18,7 @@ export class SvyBlockUI {
     @BlockUI() blockUI: NgBlockUI;
 
     public message = "";
+    public showAs: string = "text";
 
     constructor() {
     }
@@ -31,9 +32,22 @@ export class SvyBlockUI {
         this.blockUI.update(message);
         this.message = message;
     }
+    
+    setShowAs(showAs: string) {
+        const validTypes = new Set(['text', 'html', 'trusted_html']);
+        if (!validTypes.has(showAs)) {
+            showAs = 'text';
+        }
+        if (this.showAs === showAs) return;
+        this.showAs = showAs;
+    }
 
     stop() {
         this.blockUI.stop();
+    }
+    
+    trustAsHtml(): boolean {
+        return this.showAs === 'trusted_html';
     }
 }
 

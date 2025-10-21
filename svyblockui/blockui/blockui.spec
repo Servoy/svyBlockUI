@@ -57,6 +57,11 @@
 	    	"parameters": [
 		    	{ "name": "message", "type": "string" }
 			]
-		}
+		},
+        "setShowAs": {
+            "parameters": [
+                { "name": "showAs", "type": "string" }
+             ]
+        }
  	}
 }

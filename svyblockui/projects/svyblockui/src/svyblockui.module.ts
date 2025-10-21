@@ -4,6 +4,7 @@ import {SvyBlockUI} from './blockui/blockui';
 import { BlockUIModule } from 'ng-block-ui';
 import {SvyBlockUIService} from './blockui.service';
 import { CommonModule } from '@angular/common';
+import { ServoyPublicModule } from '@servoy/public';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [
         BlockUIModule.forRoot(),
-        CommonModule
+        CommonModule,
+        ServoyPublicModule
     ],
     exports: [ 
         SvyBlockUI
