@@ -8,7 +8,10 @@
        "packageName": "@servoy/svyblockui",
        "serviceName": "SvyBlockUIService",
        "entryPoint": "dist/servoy/svyblockui",
-       "moduleName": "SvyBlockUIModule"
+       "moduleName": "SvyBlockUIModule",
+       "dependencies": {
+            "csslibrary" : ["~@servoy/svyblockui/assets/svyblockui.css"]
+        }
     },
 	"libraries": [
 		{"name":"angular-block-ui.js", "version":"0.2.0", "url":"svyblockui/blockui/angular-block-ui/angular-block-ui.js", "mimetype":"text/javascript"}, 
