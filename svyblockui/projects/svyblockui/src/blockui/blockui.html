@@ -1,21 +1,29 @@
 <ng-template #blockTemplate>
-    <div class="block-ui-spinner">
-        <div class="loader"></div>
-        <div *ngIf="message && showAs === 'text'" class="message {{messageStyleClass}}">{{message}}</div>
-        <div *ngIf="message && (showAs === 'html' || showAs === 'trusted_html')" class="message {{messageStyleClass}}" [innerHTML]="message | htmlFilter | trustAsHtml:trustAsHtml()"></div>
-    </div>
+  <div class="block-ui-spinner">
+    <div class="loader"></div>
+    @if (message() && showAs() === 'text') {
+      <div class="message {{messageStyleClass}}">{{message()}}</div>
+    }
+    @if (message() && (showAs() === 'html' || showAs() === 'trusted_html')) {
+      <div class="message {{messageStyleClass}}" [innerHTML]="message() | htmlFilter | trustAsHtml:trustAsHtml()"></div>
+    }
+  </div>
 </ng-template>
 <ng-template #threeBounceTemplate>
-    <div class="block-ui-spinner">
-		<div class="sk-three-bounce">
-			<div class="sk-child sk-bounce1"></div>
-			<div class="sk-child sk-bounce2"></div>
-			<div class="sk-child sk-bounce3"></div>
-		</div>
-        <div *ngIf="message && showAs === 'text'" class="message {{messageStyleClass}}">{{message}}</div>
-        <div *ngIf="message && (showAs === 'html' || showAs === 'trusted_html')" class="message {{messageStyleClass}}" [innerHTML]="message | htmlFilter | trustAsHtml:trustAsHtml()"></div>
+  <div class="block-ui-spinner">
+    <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
     </div>
+    @if (message() && showAs() === 'text') {
+      <div class="message {{messageStyleClass}}">{{message()}}</div>
+    }
+    @if (message() && (showAs() === 'html' || showAs() === 'trusted_html')) {
+      <div class="message {{messageStyleClass}}" [innerHTML]="message() | htmlFilter | trustAsHtml:trustAsHtml()"></div>
+    }
+  </div>
 </ng-template>
-<block-ui [delayStart]="delay" [template]="spinner == 'three bounce'? threeBounceTemplate : blockTemplate" #element>
+<block-ui [delayStart]="delay" [template]="spinner === 'three bounce'? threeBounceTemplate : blockTemplate" #element>
 
 </block-ui>

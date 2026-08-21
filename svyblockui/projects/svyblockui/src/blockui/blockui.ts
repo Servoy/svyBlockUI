@@ -1,53 +1,53 @@
-import { Component, Input } from '@angular/core';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { BlockUI, NgBlockUI, BlockUIModule } from 'ng-block-ui';
+import { CommonModule } from '@angular/common';
+import { ServoyPublicModule } from '@servoy/public';
 
 @Component({
     selector: 'svyblockui-blockui',
     templateUrl: './blockui.html',
-    standalone: false
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [BlockUIModule, CommonModule, ServoyPublicModule]
 })
 export class SvyBlockUI {
 
-    delay: number;
-    spinner: string;
-    spinnerBgColor: string;
-    messageStyleClass: string;
-    overlayColor: string;
-    overlayOpacity: number;
+    delay = 0;
+    spinner = '';
+    spinnerBgColor = '';
+    messageStyleClass = '';
+    overlayColor = '';
+    overlayOpacity = 0;
 
-    @BlockUI() blockUI: NgBlockUI;
+    @BlockUI() blockUI!: NgBlockUI;
 
-    public message = "";
-    public showAs: string = "text";
-
-    constructor() {
-    }
+    readonly message = signal('');
+    readonly showAs = signal<string>('text');
 
     show(message: string) {
         this.blockUI.start(message);
-        this.message = message;
+        this.message.set(message);
     }
 
     setMessage(message: string) {
         this.blockUI.update(message);
-        this.message = message;
+        this.message.set(message);
     }
-    
+
     setShowAs(showAs: string) {
         const validTypes = new Set(['text', 'html', 'trusted_html']);
         if (!validTypes.has(showAs)) {
             showAs = 'text';
         }
-        if (this.showAs === showAs) return;
-        this.showAs = showAs;
+        if (this.showAs() === showAs) return;
+        this.showAs.set(showAs);
     }
 
     stop() {
         this.blockUI.stop();
     }
-    
+
     trustAsHtml(): boolean {
-        return this.showAs === 'trusted_html';
+        return this.showAs() === 'trusted_html';
     }
 }
-

@@ -1,4 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { SvyBlockUI } from './blockui';
 
@@ -6,21 +8,21 @@ describe('SvyBlockUI', () => {
   let component: SvyBlockUI;
   let fixture: ComponentFixture<SvyBlockUI>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SvyBlockUI ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [SvyBlockUI],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).overrideComponent(SvyBlockUI, {
+      set: { template: '' }
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SvyBlockUI);
     component = fixture.componentInstance;
-    component.servoyApi =  jasmine.createSpyObj('ServoyApi', ['getMarkupId','trustAsHtml','registerComponent','unRegisterComponent']);
-    fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

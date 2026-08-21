@@ -1,23 +1,22 @@
-import { Injectable, Inject, ComponentFactoryResolver, ApplicationRef, Injector, ComponentRef, EmbeddedViewRef } from '@angular/core';
-import { SvyBlockUI } from './blockui/blockui';
+import { Injectable, ApplicationRef, ComponentRef, EmbeddedViewRef, createComponent, EnvironmentInjector, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { SvyBlockUI } from './blockui/blockui';
+
 
 @Injectable()
 export class SvyBlockUIService {
-    private _delay: number;
-    private _spinner: string;
-    private _spinnerBgColor: string;
-    private _messageStyleClass: string;
-    private _overlayColor: string;
-    private _overlayOpacity: number;
+    private _delay = 0;
+    private _spinner = '';
+    private _spinnerBgColor = '';
+    private _messageStyleClass = '';
+    private _overlayColor = '';
+    private _overlayOpacity = 0;
 
-    blockUIComponent: ComponentRef<SvyBlockUI>;
+    blockUIComponent: ComponentRef<SvyBlockUI> | null = null;
 
-    constructor(private componentFactoryResolver: ComponentFactoryResolver,
-        private _applicationRef: ApplicationRef,
-        private _injector: Injector,
-        @Inject(DOCUMENT) private doc: Document) {
-    }
+    private readonly _applicationRef = inject(ApplicationRef);
+    private readonly _environmentInjector = inject(EnvironmentInjector);
+    private readonly doc = inject(DOCUMENT);
 
     get delay(): number {
         return this._delay;
@@ -70,17 +69,15 @@ export class SvyBlockUIService {
     show(message: string, timeout?: number) {
         let delayStart = this.delay ? this.delay : 0;
 
-        if (timeout > 0) {
-            // change the block delay of angular-block-ui
-            delayStart = timeout
+        if (timeout != null && timeout > 0) {
+            delayStart = timeout;
         }
-        
-        if (this.blockUIComponent  == null)
-        {
-            const componentFactory = this.componentFactoryResolver.resolveComponentFactory(SvyBlockUI);
-            this.blockUIComponent = componentFactory.create(this._injector);
+
+        if (this.blockUIComponent == null) {
+            this.blockUIComponent = createComponent(SvyBlockUI, {
+                environmentInjector: this._environmentInjector
+            });
             this.blockUIComponent.instance.delay = delayStart;
-            //TODO custom styling? should be done via css?
             this.blockUIComponent.instance.messageStyleClass = this._messageStyleClass;
             this.blockUIComponent.instance.overlayColor = this._overlayColor;
             this.blockUIComponent.instance.overlayOpacity = this._overlayOpacity;
@@ -96,16 +93,16 @@ export class SvyBlockUIService {
     setMessage(message: string) {
         if (this.blockUIComponent) this.blockUIComponent.instance.setMessage(message);
     }
-    
+
     setShowAs(showAs: string) {
         if (this.blockUIComponent) this.blockUIComponent.instance.setShowAs(showAs);
     }
 
     stop(timeout?: number) {
-        if (timeout > 0) {
+        if (timeout != null && timeout > 0) {
             setTimeout(() => this.stopBlocker(), timeout);
         } else {
-            this.stopBlocker()
+            this.stopBlocker();
         }
     }
 
@@ -117,4 +114,4 @@ export class SvyBlockUIService {
         }
     }
 
-} 
+}

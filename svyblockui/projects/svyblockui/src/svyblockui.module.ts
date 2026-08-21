@@ -1,25 +1,19 @@
 
 import { NgModule } from '@angular/core';
-import {SvyBlockUI} from './blockui/blockui';
+import { SvyBlockUI } from './blockui/blockui';
 import { BlockUIModule } from 'ng-block-ui';
-import {SvyBlockUIService} from './blockui.service';
-import { CommonModule } from '@angular/common';
-import { ServoyPublicModule } from '@servoy/public';
+import { SvyBlockUIService } from './blockui.service';
 
 @NgModule({
-    declarations: [
-        SvyBlockUI
+    imports: [
+        SvyBlockUI,
+        BlockUIModule.forRoot()
     ],
     providers: [
         SvyBlockUIService
     ],
-    imports: [
-        BlockUIModule.forRoot(),
-        CommonModule,
-        ServoyPublicModule
-    ],
-    exports: [ 
+    exports: [
         SvyBlockUI
-      ]
+    ]
 })
 export class SvyBlockUIModule {}

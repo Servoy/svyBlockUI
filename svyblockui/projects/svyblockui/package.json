@@ -1,6 +1,6 @@
 {
   "name": "@servoy/svyblockui",
-  "version": "2025.3.0",
+  "version": "2026.9.0",
   "peerDependencies": {
     "@angular/animations": "^19",
     "@angular/cdk": "^19",
