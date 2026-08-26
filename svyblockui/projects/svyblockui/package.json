@@ -2,14 +2,14 @@
   "name": "@servoy/svyblockui",
   "version": "2026.9.0",
   "peerDependencies": {
-    "@angular/animations": "^19",
-    "@angular/cdk": "^19",
-    "@angular/common": "^19",
-    "@angular/core": "^19",
-    "@angular/forms": "^19"
+    "@angular/animations": "^22",
+    "@angular/cdk": "^22",
+    "@angular/common": "^22",
+    "@angular/core": "^22",
+    "@angular/forms": "^22"
   },
   "dependencies": {
-    "ng-block-ui": "^4",
+    "@servoy/ng-block-ui": "^5",
     "tslib": "*"
   },
   "license": "MIT",

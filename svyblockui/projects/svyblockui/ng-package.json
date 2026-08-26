@@ -6,5 +6,5 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "allowedNonPeerDependencies": ["ng-block-ui"]
+  "allowedNonPeerDependencies": ["@servoy/ng-block-ui"]
 }

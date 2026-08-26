@@ -11,6 +11,7 @@ export class SvyBlockUIService {
     private _messageStyleClass = '';
     private _overlayColor = '';
     private _overlayOpacity = 0;
+    private _showAs = 'text';
 
     blockUIComponent: ComponentRef<SvyBlockUI> | null = null;
 
@@ -83,6 +84,7 @@ export class SvyBlockUIService {
             this.blockUIComponent.instance.overlayOpacity = this._overlayOpacity;
             this.blockUIComponent.instance.spinner = this._spinner;
             this.blockUIComponent.instance.spinnerBgColor = this._spinnerBgColor;
+            this.blockUIComponent.instance.setShowAs(this._showAs);
             this._applicationRef.attachView(this.blockUIComponent.hostView);
             this.doc.body.appendChild((this.blockUIComponent.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement);
         }
@@ -95,6 +97,7 @@ export class SvyBlockUIService {
     }
 
     setShowAs(showAs: string) {
+        this._showAs = showAs;
         if (this.blockUIComponent) this.blockUIComponent.instance.setShowAs(showAs);
     }
 

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
-import { BlockUI, NgBlockUI, BlockUIModule } from 'ng-block-ui';
+import { BlockUI, NgBlockUI, BlockUIModule, BlockUIInstanceService, BlockUIServiceInstance } from '@servoy/ng-block-ui';
 import { CommonModule } from '@angular/common';
 import { ServoyPublicModule } from '@servoy/public';
 
@@ -8,7 +8,10 @@ import { ServoyPublicModule } from '@servoy/public';
     templateUrl: './blockui.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [BlockUIModule, CommonModule, ServoyPublicModule]
+    imports: [BlockUIModule, CommonModule, ServoyPublicModule],
+    providers: [
+        { provide: BlockUIInstanceService, useValue: BlockUIServiceInstance }
+    ]
 })
 export class SvyBlockUI {
 
